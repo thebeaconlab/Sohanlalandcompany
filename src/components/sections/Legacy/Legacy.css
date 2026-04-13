@@ -1,0 +1,296 @@
+/* ─────────────────────────────────────────────
+   Legacy Section
+───────────────────────────────────────────── */
+
+
+/* Only the cards container sticks — the heading scrolls away normally.
+ * LaunchingSoon's fixed panel (z-index: 500) then covers it from below. */
+.leg-section {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+}
+
+.leg-container {
+  display: flex;
+  height: 80vh;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  gap: 40px;
+  padding: 80px 0;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 1%;
+  background-color: var(--pcs-brown-100);
+  border-top-left-radius: 42px;
+  border-bottom-right-radius: 42px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.leg-left {
+  flex: 1 1 50%;
+  min-width: 0;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.leg-left-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.leg-number {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  font-family: var(--font-lora), serif;
+  font-weight: 700;
+  line-height: 93%;
+  letter-spacing: -0.04em;
+  color: var(--pcs-brown-500);
+}
+
+.leg-number__digits {
+  font-size: clamp(300px, 35vw, 380px);
+  line-height: 80%;
+  letter-spacing: -0.04em;
+}
+
+.leg-number__plus {
+  font-size: 310px;
+  line-height: 80%;
+  letter-spacing: -0.04em;
+  margin-left: 0.02em;
+}
+
+.leg-years {
+  display: block;
+  font-family: var(--font-lora), serif;
+  font-size: clamp(100px, 10vw, 110px);
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: -0.04em;
+  color: var(--pcs-brown-500);
+}
+
+.leg-divider {
+  flex-shrink: 0;
+  align-self: stretch;
+  width: 1px;
+  background-color: var(--grey-300);
+}
+
+.leg-right {
+  flex: 1 1 50%;
+  min-width: 0;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.leg-story-title {
+  margin: 0;
+  font-family: var(--font-lora), serif;
+  font-size: clamp(26px, 2.203vw, 46px);
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: -0.03em;
+  color: var(--pcs-brown-600);
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+  text-transform: uppercase;
+}
+
+.leg-paras {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 80%;
+}
+
+.leg-para {
+  margin: 0;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: clamp(20px, 1.024vw, 36px);
+  line-height: 150%;
+  letter-spacing: 0.02em;
+  text-align: left;
+  /*
+   * No color / font-weight here — .leg-word children own those
+   * so GSAP can animate them independently per word.
+   */
+}
+
+/* ── Tablet breakpoint (≤ 1280px) ─────────────────────────────
+ * At this width the left column is ~594px — too narrow for the
+ * desktop numerals (380px digits + 310px plus = 690px overflow).
+ * Scale everything down so the stack sits comfortably inside its
+ * column without clipping, while keeping the proportions.
+ */
+@media (max-width: 1280px) {
+  .leg-container {
+    height: 70vh;
+    padding: 60px 0;
+    gap: 28px;
+  }
+
+  /* digits "50" */
+  .leg-number__digits {
+    font-size: clamp(280px, 20vw, 340px);
+  }
+
+  /* "+" — proportionally smaller than the digits */
+  .leg-number__plus {
+    font-size: clamp(140px, 17vw, 200px);
+  }
+
+  /* "years" */
+  .leg-years {
+    font-size: clamp(54px, 7vw, 80px);
+  }
+
+  /* Right column — bump up paragraph size that bottoms out at 20px */
+  .leg-para {
+    font-size: clamp(14px, 1.4vw, 20px);
+  }
+
+  .leg-story-title {
+    font-size: clamp(22px, 2.5vw, 38px);
+  }
+}
+
+/* ── Mobile breakpoint (≤ 768px) ──────────────────────────────
+ * Layout flips to a single column:
+ *   50+ years  →  top half
+ *   ── hr ──   →  horizontal divider
+ *   story copy →  bottom half
+ *
+ * 8px left/right margin keeps a sliver of the white page visible
+ * around the brown card. Inside gap is 10px.
+ */
+@media (max-width: 768px) {
+
+  /* Card: column stack, 8px side margins, auto height */
+  .leg-container {
+    flex-direction: column;
+    height: auto;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: 20px;
+    gap: 40px;
+    padding: 42px 0 42px;
+    border-top-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+
+  }
+
+  /* Left block: full width, centre the numeral stack */
+  .leg-left {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+    padding: 16px 10px;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .leg-left-stack {
+    align-items: center; /* centre "50+" above "years" */
+  }
+
+  /* Numerals: user-specified sizes */
+  .leg-number__digits {
+    font-size: 200px;
+  }
+
+  .leg-number__plus {
+    font-size: 120px;
+  }
+
+  .leg-years {
+    font-size: 60px;
+  }
+
+  /* Divider: flip from a vertical bar to a full-width horizontal rule */
+  .leg-divider {
+    width: 90%;
+    height: 1px;
+    align-self: center; /* don't stretch vertically in column layout */
+  }
+
+  /* Right block: full width, left-aligned content */
+  .leg-right {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+    padding: 0 26px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .leg-story-title {
+    text-align: center;
+    font-size: clamp(22px, 5.6vw, 26px);
+  }
+
+  /* Paragraphs: 18px, full width */
+  .leg-paras {
+    max-width: 100%;
+    gap: 10px;
+  }
+
+  .leg-para {
+    font-size: 18px;
+    line-height: 140%;
+    text-align: center;
+  }
+}
+
+/* ── Right-panel reveal: clip + slide ──────────────────────────
+ * Same pattern as SectionHeading: outer clips, inner slides up.
+ */
+.leg-reveal-clip {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+}
+
+.leg-reveal-inner {
+  display: block;
+  /* GSAP sets y and autoAlpha on these — no initial CSS needed */
+  will-change: transform, opacity;
+}
+
+/* ── Word sweep ────────────────────────────────────────────────
+ * --leg-wght is the CSS custom property GSAP animates (300 → 600).
+ * font-variation-settings picks it up so the variable font
+ * interpolates weight smoothly without any layout shift.
+ */
+.leg-word {
+  --leg-wght: 400;
+  font-variation-settings: "wght" var(--leg-wght);
+  color: var(--pcs-brown-200);
+  will-change: color, font-variation-settings;
+}

@@ -1,65 +1,137 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import Header from "../components/sections/Header/Header";
+import Hero from "../components/sections/Hero/Hero";
+import Category from "../components/sections/Category/Category";
+import Legacy from "../components/sections/Legacy/Legacy";
+import LaunchingSoon from "../components/sections/LaunchSoon/Launching_soon";
+
+const SITE_URL = "https://sohanlalandcompany.com";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: "SL Build Tech",
+      alternateName: "Sohan Lal and Company",
+      url: SITE_URL,
+      logo: `${SITE_URL}/og-image.png`,
+      description:
+        "A trusted construction company with a legacy spanning over 50 years, " +
+        "delivering premium building materials and innovative construction solutions.",
+      foundingDate: "1975",
+      numberOfEmployees: { "@type": "QuantitativeValue", minValue: 50 },
+      knowsAbout: [
+        "Bricks & Blocks",
+        "Paving Solutions",
+        "Facade & Wall Cladding",
+        "Precast Solutions",
+        "Architectural & Landscape Products",
+      ],
+      /* TODO: Add when ready
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "...",
+        addressLocality: "...",
+        addressRegion: "...",
+        postalCode: "...",
+        addressCountry: "IN",
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+91-...",
+        contactType: "sales",
+        availableLanguage: ["English", "Hindi"],
+      },
+      sameAs: [
+        "https://www.instagram.com/...",
+        "https://www.linkedin.com/company/...",
+      ],
+      */
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: "SL Build Tech",
+      publisher: { "@id": `${SITE_URL}/#organization` },
+      inLanguage: "en-IN",
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/#homepage`,
+      url: SITE_URL,
+      name: "SL Build Tech | Premium Construction & Building Solutions",
+      description:
+        "Explore SL Build Tech's premium range of bricks, paving solutions, " +
+        "facade cladding, precast products, and architectural designs — " +
+        "backed by 50+ years of trusted craftsmanship.",
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      about: { "@id": `${SITE_URL}/#organization` },
+      inLanguage: "en-IN",
+    },
+    {
+      "@type": "ItemList",
+      name: "Product Categories",
+      itemListOrder: "https://schema.org/ItemListOrderAscending",
+      numberOfItems: 5,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Bricks & Blocks",
+          url: `${SITE_URL}/products/bricks-and-blocks`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Paving Solutions",
+          url: `${SITE_URL}/products/paving-solutions`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Facade & Wall Cladding",
+          url: `${SITE_URL}/products/facade-and-wall-cladding`,
+        },
+        {
+          "@type": "ListItem",
+          position: 4,
+          name: "Precast Solutions",
+          url: `${SITE_URL}/products/precast-solutions`,
+        },
+        {
+          "@type": "ListItem",
+          position: 5,
+          name: "Architectural & Landscape",
+          url: `${SITE_URL}/products/architectural-and-landscape`,
+        },
+      ],
+    },
+  ],
+};
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <Header />
+      <main>
+        <Hero />
+        <Category />
+        <Legacy />
+        <LaunchingSoon />
       </main>
-    </div>
+    </>
   );
 }

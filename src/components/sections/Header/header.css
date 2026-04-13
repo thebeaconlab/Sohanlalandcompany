@@ -1,0 +1,151 @@
+.sl-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: max-content;
+  border-bottom-right-radius: 20px;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+/*
+ * The background lives on ::before so we can transition its opacity
+ * without affecting logo, nav, or CTA visibility.
+ * opacity: 1  → full opaque header (default / over Category)
+ * opacity: 0.15 → transparent header (over Hero section)
+ */
+.sl-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-bottom-right-radius: inherit;
+  background-color: hsla(28, 31, 28, 0.86);
+  backdrop-filter: blur(18px);
+  background-image: url("/svg/gradients/Header-shader.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  box-shadow: 1px 4px 4px 0.5px color-mix(in oklab, var(--grey-600) 15%, transparent);
+  opacity: 1;
+  transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+}
+
+/* Transparent state — active while the hero section fills the viewport */
+.sl-header--hero::before {
+  opacity: 0.15;
+}
+
+.sl-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3%;
+  height: 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.sl-header__logoSlot {
+  position: relative;
+  width: 200px;
+  height: 60px;
+  flex: 0 0 auto;
+}
+
+.sl-header__logoImg {
+  object-fit: contain;
+}
+
+.sl-header__nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.sl-header__menu {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 100%;
+}
+
+.sl-header__menuItem {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.sl-header__link {
+  height: 90%;
+  display: flex;
+  align-items: center;
+  font-family: var(--font-lora);
+  font-size: clamp(14px, 1vw, 16px);
+  color: var(--pcs-brown-100);
+  text-decoration: none;
+  line-height: 93%;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  padding: 0 20px;
+  transition: all 200ms ease;
+  border-bottom: 0.8px solid transparent;
+}
+
+.sl-header__link:hover {
+  background: var(--pcs-brown-400);
+  border-top-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-bottom: 0.8px solid var(--pcs-brown-100);
+  outline: none;
+}
+
+.sl-header__ctaSlot {
+  width: 200px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 0 0 auto;
+}
+
+/* ─────────────────────────────────────────────
+   Mobile + small tablet header
+   ───────────────────────────────────────────── */
+.sl-header__mobileBar {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .sl-header__inner {
+    height: auto;
+    padding: 12px 16px; /* top/bottom 12px as requested */
+  }
+
+  .sl-header__logoSlot,
+  .sl-header__nav,
+  .sl-header__ctaSlot {
+    display: none;
+  }
+
+  .sl-header__mobileBar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .sl-header__mobileLogoSlot {
+    position: relative;
+    width: 120px;
+    height: 46px;
+  }
+}
+
+

@@ -1,0 +1,98 @@
+/* ─────────────────────────────────────────────
+   Primary CTA Button
+───────────────────────────────────────────── */
+
+.pcta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 14px;
+  background: var(--pcs-brown-700);
+  color: var(--pcs-brown-shade-10);
+  border: 0.6px solid var(--pcs-brown-100);
+  border-top-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  font-family: var(--font-lora);
+  font-size: 18px;
+  font-weight: 550;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 93%;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  width: max-content;
+  height: max-content;
+}
+
+/* Active / pressed — border thickens; bg handled by ripple */
+.pcta--active {
+  border-width: 1px;
+}
+
+/* ── Sunrise ripple ────────────────────────────────────────
+   Center of the circle sits exactly on the bottom edge of
+   the button (bottom: -15px = pushes center to the edge).
+   overflow:hidden clips the lower half so only a semicircle
+   is visible — grows upward like a sunrise.
+──────────────────────────────────────────────────────────── */
+.pcta__ripple {
+  position: absolute;
+  bottom: -15px;       /* element center = button bottom edge */
+  left: 50%;
+  margin-left: -15px;  /* half of width → horizontal center   */
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--pcs-brown-400);
+  pointer-events: none;
+  z-index: 0;
+  /* transform-origin defaults to element center (bottom edge of button) */
+}
+
+/* ── Text wrap ─────────────────────────────────────────────
+   overflow:hidden clips the text while it slides in/out.
+   No fixed height needed — single element always in DOM.
+──────────────────────────────────────────────────────────── */
+.pcta__textWrap {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  /* Give the clip box a little vertical breathing room so
+     the font descenders / ascenders don't clip during slide */
+  padding-block: 2px;
+  margin-block: -2px;
+}
+
+.pcta__text {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* ── Icon wrap & icon ──────────────────────────────────────
+   Outer wrap animates the WIDTH (controls layout space).
+   Inner icon span animates the SCALE (controls visual size).
+   Together they give a perfectly smooth grow / shrink.
+──────────────────────────────────────────────────────────── */
+.pcta__iconWrap {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.pcta__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  flex-shrink: 0;
+  will-change: transform, opacity;
+}

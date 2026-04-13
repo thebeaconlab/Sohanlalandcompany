@@ -1,0 +1,90 @@
+/* ─────────────────────────────────────────────
+   SectionHeading — reusable slide-up reveal
+───────────────────────────────────────────── */
+
+.sec-heading {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.sec-heading__title {
+  margin: 0;
+  text-transform: uppercase;
+  font-family: var(--font-lora), serif;
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 120%;
+  letter-spacing: -0.03em;
+  color: var(--pcs-brown-700);
+  text-align: center;
+}
+
+.sec-heading__description {
+  margin: 0;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 120%;
+  color: var(--pcs-brown-400);
+  text-align: center;
+}
+
+/* ── Slide-up clip reveal ───────────────────────────────────────
+ * .sec-reveal__clip   — overflow:hidden; hides text sitting below.
+ * .sec-reveal__text   — starts 65% below + opacity 0.
+ *                       CSS transitions drive the reveal.
+ * .sec-heading--visible — toggled by ScrollTrigger; starts both lines.
+ *
+ * Delay ladder (mirrors reference CSS):
+ *   title       → 0.15s  (fires first)
+ *   description → 0.45s  (fires second)
+ */
+.sec-reveal__clip {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em; /* keeps descenders (g, y) from clipping */
+}
+
+.sec-reveal__text {
+  display: block;
+  transform: translateZ(0) translateY(65%);
+  opacity: 0;
+  transition:
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity   0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sec-heading--visible .sec-heading__title .sec-reveal__text {
+  transform: translateZ(0) translateY(0);
+  opacity: 1;
+  transition-delay: 0.15s;
+}
+
+.sec-heading--visible .sec-heading__description .sec-reveal__text {
+  transform: translateZ(0) translateY(0);
+  opacity: 1;
+  transition-delay: 0.45s;
+}
+
+/* ── Mobile (≤ 768px) ──────────────────────────────────────────
+ * Scale the heading down to match the mobile design spec.
+ * !important is needed to override the inline paddingTop/paddingBottom
+ * props set directly as style attributes on the element.
+ */
+@media (max-width: 768px) {
+  .sec-heading {
+    padding-top: 60px !important;
+    padding-bottom: 32px !important;
+  }
+
+  .sec-heading__title {
+    font-size: 32px;
+  }
+
+  .sec-heading__description {
+    font-size: 20px;
+  }
+}
