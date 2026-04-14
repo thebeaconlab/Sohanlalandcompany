@@ -128,8 +128,6 @@ export default function Legacy() {
       <SectionHeading
         title="Our Legacy"
         description="How we evolved over the years"
-        paddingTop="150px"
-        paddingBottom="80px"
       />
 
       <section className="leg-section">

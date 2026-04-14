@@ -184,8 +184,6 @@ export default function Category() {
       <SectionHeading
         title="Categories"
         description="All out our luxury products under one place"
-        paddingTop="140px"
-        paddingBottom="40px"
       />
 
       <section className="cat-section" ref={containerRef}>

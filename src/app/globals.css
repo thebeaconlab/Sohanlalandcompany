@@ -37,7 +37,7 @@
   /* =========================
      DEFAULT THEME MAPPING
      ========================= */
-  --background: var(--grey-10);
+  --background: #ffffff;
   --foreground: var(--grey-800);
 
   --primary: var(--pcs-brown-500);

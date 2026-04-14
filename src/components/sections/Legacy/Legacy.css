@@ -3,37 +3,34 @@
 ───────────────────────────────────────────── */
 
 
-/* Only the cards container sticks — the heading scrolls away normally.
- * LaunchingSoon's fixed panel (z-index: 500) then covers it from below. */
+/* Legacy panel now scrolls as a normal block section. */
 .leg-section {
-  position: sticky;
-  top: 0;
-  z-index: 1;
+  position: relative;
   width: 100%;
 }
 
 .leg-container {
   display: flex;
-  height: 80vh;
+  height: 82vh;
   flex-direction: row;
   align-items: stretch;
   justify-content: center;
   gap: 40px;
   padding: 80px 0;
-  margin-left: 1%;
-  margin-right: 1%;
-  margin-bottom: 1%;
+  margin-left: 1.2%;
+  margin-right: 1.2%;
   background-color: var(--pcs-brown-100);
-  border-top-left-radius: 42px;
-  border-bottom-right-radius: 42px;
+  border-top-left-radius: 52px;
+  border-bottom-right-radius: 52px;
   overflow: hidden;
   box-sizing: border-box;
+  border: 1.4px solid var(--pcs-brown-200);
 }
 
 .leg-left {
-  flex: 1 1 50%;
+  flex: 1 1 55%;
   min-width: 0;
-  max-width: 50%;
+  max-width: 55%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -65,7 +62,7 @@
 }
 
 .leg-number__digits {
-  font-size: clamp(300px, 35vw, 380px);
+  font-size: clamp(300px, 40vw, 460px);
   line-height: 80%;
   letter-spacing: -0.04em;
 }
@@ -91,13 +88,13 @@
   flex-shrink: 0;
   align-self: stretch;
   width: 1px;
-  background-color: var(--grey-300);
+  background-color: var(--grey-400);
 }
 
 .leg-right {
-  flex: 1 1 50%;
+  flex: 1 1 45%;
   min-width: 0;
-  max-width: 50%;
+  max-width: 45%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

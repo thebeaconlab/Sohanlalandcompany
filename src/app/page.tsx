@@ -3,7 +3,7 @@ import Header from "../components/sections/Header/Header";
 import Hero from "../components/sections/Hero/Hero";
 import Category from "../components/sections/Category/Category";
 import Legacy from "../components/sections/Legacy/Legacy";
-import LaunchingSoon from "../components/sections/LaunchSoon/Launching_soon";
+import Trestimonial from "../components/sections/Partners-Review/Testimonial/Trestimonial";
 
 const SITE_URL = "https://sohanlalandcompany.com";
 
@@ -130,7 +130,7 @@ export default function Home() {
         <Hero />
         <Category />
         <Legacy />
-        <LaunchingSoon />
+        <Trestimonial />
       </main>
     </>
   );
