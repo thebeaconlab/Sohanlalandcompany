@@ -183,7 +183,7 @@ export default function Category() {
     <>
       <SectionHeading
         title="Categories"
-        description="All out our luxary products under one place"
+        description="All out our luxury products under one place"
         paddingTop="140px"
         paddingBottom="40px"
       />
