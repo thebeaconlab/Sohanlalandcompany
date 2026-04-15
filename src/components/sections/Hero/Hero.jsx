@@ -54,18 +54,18 @@ export default function Hero() {
 
           <h1 className="hero-title">
             <span className="hero-reveal-clip">
-              <span className="hero-reveal-inner">From structures</span>
+              <span className="hero-reveal-inner">Shaping Structure.</span>
             </span>
             <span className="hero-reveal-clip">
-              <span className="hero-reveal-inner">to surfaces</span>
+              <span className="hero-reveal-inner">Defining Surfaces.</span>
             </span>
           </h1>
 
           <p className="hero-description">
             <span className="hero-reveal-clip">
               <span className="hero-reveal-inner">
-                Producing the finest luxury collection. Covering all your
-                construction needs.
+                Complete building material solutions across masonry, facades, paving, 
+                and precast.
               </span>
             </span>
           </p>

@@ -6,7 +6,7 @@ import "./header.css";
 import PrimaryCta from "../../Buttons/form-cta/Primary-cta";
 import slLogo from "../../../assets/logo/sohanlalandco.png";
 
-export default function Header() {
+export default function Header({ forceSolid = false, disableBottomRightRadius = false }) {
   const headerRef = useRef(null);
 
   useEffect(() => {
@@ -20,6 +20,11 @@ export default function Header() {
        * the hero's height — early enough for the 500ms transition to complete
        * before the Category section fully appears.
        */
+      if (forceSolid) {
+        header.classList.remove("sl-header--hero");
+        return;
+      }
+
       const threshold = window.innerHeight * 0.78;
       header.classList.toggle("sl-header--hero", window.scrollY < threshold);
     };
@@ -30,7 +35,11 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="sl-header" ref={headerRef} role="banner">
+    <header
+      className={`sl-header${disableBottomRightRadius ? " sl-header--flat-corner" : ""}`}
+      ref={headerRef}
+      role="banner"
+    >
       <div className="sl-header__inner">
         <div className="sl-header__mobileBar" aria-label="Mobile header">
           <div className="sl-header__mobileLogoSlot" aria-label="Sohanlal logo">
@@ -59,7 +68,7 @@ export default function Header() {
         <nav className="sl-header__nav" aria-label="Primary">
           <ul className="sl-header__menu">
             <li className="sl-header__menuItem">
-              <a className="sl-header__link" href="#">
+              <a className="sl-header__link" href="/">
                 HOME
               </a>
             </li>

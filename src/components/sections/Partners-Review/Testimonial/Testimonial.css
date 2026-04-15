@@ -9,7 +9,7 @@
 .testimonial-panel {
   display: flex;
   align-items: stretch;
-  gap: 60px;
+  gap: 40px;
   padding: 40px 2%;
   box-sizing: border-box;
 }

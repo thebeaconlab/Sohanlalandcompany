@@ -43,6 +43,14 @@
   z-index: 1;
 }
 
+.scta__icon {
+  position: relative;
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
 /* Same sunrise/radial concept as Primary CTA */
 .scta__ripple {
   position: absolute;

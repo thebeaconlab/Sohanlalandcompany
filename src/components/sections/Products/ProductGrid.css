@@ -1,0 +1,39 @@
+.prod-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 0 2% 80px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.prod-grid__empty {
+  text-align: center;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--pcs-brown-300);
+  padding: 60px 2% 80px;
+}
+
+.prod-grid__cell {
+  will-change: transform, filter, opacity;
+}
+
+/* ── Tablet: 3 columns ─────────────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .prod-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+}
+
+/* ── Mobile: always 2 columns ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .prod-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    padding: 0 3% 48px;
+  }
+}

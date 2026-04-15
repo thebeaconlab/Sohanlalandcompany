@@ -105,30 +105,38 @@
 /* ── View Products CTA pill ──────────────────────────────────── */
 .cat-card__cta {
   display: inline-flex;
-  flex-direction: row;
   align-items: center;
-  gap: 2px;
-  padding: 4px 12px;
-  border: 1px solid var(--pcs-brown-10);
-  border-top-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-  border-top-right-radius: 0;
-  border-bottom-left-radius: 0;
+  justify-content: center;
 }
 
-.cat-card__cta-text {
-  font-size: 12px;
-  font-weight: 550;
-  text-transform: uppercase;
+.cat-card__cta .scta {
+  font-size: clamp(14px, 3.2vw, 16px);
+  padding: 8px 10px;
+  border-color: var(--pcs-brown-10);
   color: var(--pcs-brown-10);
-  letter-spacing: 0.01em;
-  line-height: 120%;
-  white-space: nowrap;
 }
 
-.cat-card__cta-icon {
-  display: block;
-  flex-shrink: 0;
+.cat-card__cta .scta--hover {
+  border-color: var(--pcs-brown-100);
+  color: var(--pcs-brown-10);
+}
+
+.cat-card__cta .scta--active {
+  border-color: var(--pcs-brown-10);
+  color: var(--pcs-brown-10);
+}
+
+.cat-card__cta .scta__ripple--hover {
+  background: color-mix(in oklab, var(--pcs-brown-300) 76%, white);
+}
+
+.cat-card__cta .scta__ripple--active {
+  background: color-mix(in oklab, var(--pcs-brown-500) 86%, white);
+}
+
+.cat-card__cta .cat-card__cta-icon {
+  width: 26px;
+  height: 26px;
 }
 
 /* ── Desktop/mobile image + title toggling ───────────────────── */
@@ -139,6 +147,17 @@
 
 /* ── Desktop hover polish ─────────────────────────────────────── */
 @media (min-width: 1025px) {
+  /*
+   * Keep every category title on a shared center-line, regardless of
+   * whether it wraps to 1 line or 2 lines (e.g. Facade/Architectural cards).
+   */
+  .cat-card__title {
+    min-height: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .cat-card:hover .cat-card__img {
     transform: scale(1.045);
     filter: brightness(0.82);
@@ -238,19 +257,13 @@
   }
 
   .cat-card__cta {
-    padding: 4px 8px;
-    gap: 2px;
     flex-shrink: 0;
     align-self: flex-end;
   }
 
-  .cat-card__cta-text {
+  .cat-card__cta .scta {
     font-size: 11px;
-  }
-
-  .cat-card__cta-icon {
-    width: 18px;
-    height: 18px;
+    padding: 4px 8px;
   }
 
   /* ── Section heading (scrolls above the sticky cards on mobile) ──

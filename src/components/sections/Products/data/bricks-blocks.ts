@@ -35,7 +35,17 @@ const bricksBlocks: ProductCategory = {
     {
       id: "red-clay-bricks",
       name: "Red Clay Bricks",
-      image: "/Images/Products/bricks-blocks/red-clay-bricks.png",
+      image: "/Images/Products/bricks-blocks/red-clay-brick.png",
+      attributes: {
+        dimensions: "190L x 90W x 90H",
+        units:      "millimeters",
+        strength:   "20 MPa",
+      },
+    },
+    {
+      id: "red-clay-tiles",
+      name: "Red Clay Tiles",
+      image: "/Images/Products/bricks-blocks/red-clay-tile.png",
       attributes: {
         dimensions: "190L x 90W x 90H",
         units:      "millimeters",
@@ -45,17 +55,7 @@ const bricksBlocks: ProductCategory = {
     {
       id: "concrete-bricks",
       name: "Concrete Bricks",
-      image: "/Images/Products/bricks-blocks/concrete-bricks.png",
-      attributes: {
-        dimensions: "190L x 90W x 90H",
-        units:      "millimeters",
-        strength:   "20 MPa",
-      },
-    },
-    {
-      id: "concrete-blocks",
-      name: "Concrete Blocks",
-      image: "/Images/Products/bricks-blocks/concrete-blocks.png",
+      image: "/Images/Products/bricks-blocks/concrete-brick.png",
       attributes: {
         dimensions: "190L x 90W x 90H",
         units:      "millimeters",
@@ -65,7 +65,7 @@ const bricksBlocks: ProductCategory = {
     {
       id: "hollow-blocks",
       name: "Hollow Blocks",
-      image: "/Images/Products/bricks-blocks/hollow-blocks.png",
+      image: "/Images/Products/bricks-blocks/hollow-block.png",
       attributes: {
         dimensions: "190L x 90W x 90H",
         units:      "millimeters",

@@ -9,6 +9,10 @@
   overflow: hidden;
 }
 
+.sl-header--flat-corner {
+  border-bottom-right-radius: 0;
+}
+
 /*
  * The background lives on ::before so we can transition its opacity
  * without affecting logo, nav, or CTA visibility.

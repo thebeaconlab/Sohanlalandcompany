@@ -48,20 +48,21 @@ export default function PrimaryCta({ onClick }) {
     iconControls.set({ scale: 0 });
     iconWrapControls.set({ width: 0, opacity: 0 });
 
-    textControls.stop();
-    await textControls.start({
-      y: "-115%",
-      opacity: 0,
-      transition: { duration: 0.12, ease: EASE_IN_QUAD },
-    });
-    textControls.set({ y: "115%", opacity: 0 });
+    // Text flip disabled for now; keep text static on hover.
+    // textControls.stop();
+    // await textControls.start({
+    //   y: "-115%",
+    //   opacity: 0,
+    //   transition: { duration: 0.12, ease: EASE_IN_QUAD },
+    // });
+    // textControls.set({ y: "115%", opacity: 0 });
 
     await Promise.all([
-      textControls.start({
-        y: "0%",
-        opacity: 1,
-        transition: { duration: 0.22, ease: EASE_OUT_QUAD },
-      }),
+      // textControls.start({
+      //   y: "0%",
+      //   opacity: 1,
+      //   transition: { duration: 0.22, ease: EASE_OUT_QUAD },
+      // }),
       iconWrapControls.start({
         width: 24,
         opacity: 1,
@@ -97,18 +98,19 @@ export default function PrimaryCta({ onClick }) {
       }),
     ]);
 
-    textControls.stop();
-    await textControls.start({
-      y: "115%",
-      opacity: 0,
-      transition: { duration: 0.18, ease: EASE_IN_QUAD },
-    });
-    textControls.set({ y: "-115%", opacity: 0 });
-    await textControls.start({
-      y: "0%",
-      opacity: 1,
-      transition: { duration: 0.26, ease: EASE_OUT_QUAD },
-    });
+    // Text flip disabled for now; keep text static on hover out.
+    // textControls.stop();
+    // await textControls.start({
+    //   y: "115%",
+    //   opacity: 0,
+    //   transition: { duration: 0.18, ease: EASE_IN_QUAD },
+    // });
+    // textControls.set({ y: "-115%", opacity: 0 });
+    // await textControls.start({
+    //   y: "0%",
+    //   opacity: 1,
+    //   transition: { duration: 0.26, ease: EASE_OUT_QUAD },
+    // });
 
     phaseRef.current = "idle";
 

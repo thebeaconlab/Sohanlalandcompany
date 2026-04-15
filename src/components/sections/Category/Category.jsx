@@ -2,9 +2,11 @@
 
 import Image from "next/image";
 import { useLayoutEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionHeading from "../../secHeader/SectionHeading";
+import SecondCta from "../../Buttons/second-cta/second-cta";
 import "./Category.css";
 
 // Register ScrollTrigger globally
@@ -19,6 +21,7 @@ const CATEGORIES = [
     mobileTitle: (<>Bricks &<br />Blocks</>),
     image: "/Images/Category/home-page/1-bricks-vertical.png",
     mobileImage: "/Images/Category/home-page/1-bricks-horizontal.png",
+    slug: "bricks-blocks",
   },
   {
     id: 2,
@@ -26,6 +29,7 @@ const CATEGORIES = [
     mobileTitle: (<>Paving<br />Solutions</>),
     image: "/Images/Category/home-page/2-paving-vertical.png",
     mobileImage: "/Images/Category/home-page/2-paving-horizontal.png",
+    slug: "paving-solutions",
   },
   {
     id: 3,
@@ -33,6 +37,7 @@ const CATEGORIES = [
     mobileTitle: (<>Facade & Wall<br />Cladding</>),
     image: "/Images/Category/home-page/3-wall-cladding-vertical.png",
     mobileImage: "/Images/Category/home-page/3-wall-cladding-horizontal.png",
+    slug: "wall-cladding",
   },
   {
     id: 4,
@@ -40,6 +45,7 @@ const CATEGORIES = [
     mobileTitle: (<>Precast<br />Solutions</>),
     image: "/Images/Category/home-page/4-pre-cast-vertical.png",
     mobileImage: "/Images/Category/home-page/4-precast-horizontal.png",
+    slug: "precast-solutions",
   },
   {
     id: 5,
@@ -47,11 +53,13 @@ const CATEGORIES = [
     mobileTitle: (<>Architectural &<br />Landscape</>),
     image: "/Images/Category/home-page/5-arch-vertical.png",
     mobileImage: "/Images/Category/home-page/5-arch-horizontal.png",
+    slug: "architecture-landscape",
   },
 ];
 
 export default function Category() {
   const containerRef = useRef(null);
+  const router = useRouter();
 
   // Capture viewport height exactly once so Safari chrome show/hide
   // never triggers a resize-based layout jump on the sticky section.
@@ -183,13 +191,29 @@ export default function Category() {
     <>
       <SectionHeading
         title="Categories"
-        description="All out our luxury products under one place"
+        description={
+          <>
+          <span>A complete range of building materials, designed for <br/>modern construction.</span>
+          </>
+        }
       />
 
       <section className="cat-section" ref={containerRef}>
       <div className="cat-grid">
         {CATEGORIES.map((cat) => (
-          <div className="cat-card" key={cat.id}>
+          <div
+            className="cat-card"
+            key={cat.id}
+            role="link"
+            tabIndex={0}
+            onClick={() => router.push(`/products/${cat.slug}`)}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                router.push(`/products/${cat.slug}`);
+              }
+            }}
+          >
             {/* Desktop vertical image */}
             <Image
               src={cat.image}
@@ -219,12 +243,14 @@ export default function Category() {
               </h3>
 
               <div className="cat-card__cta">
-                <h5 className="cat-card__cta-text">View Products</h5>
-                <img
-                  src="/svg/arrow-up-right.svg"
-                  alt=""
-                  aria-hidden="true"
-                  className="cat-card__cta-icon"
+                <SecondCta
+                  label="View Products"
+                  rightIconSrc="/svg/arrow-up-right.svg"
+                  rightIconClassName="cat-card__cta-icon"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    router.push(`/products/${cat.slug}`);
+                  }}
                 />
               </div>
             </div>

@@ -14,12 +14,14 @@ if (typeof window !== "undefined") {
  *
  * Props
  * ─────
- * title        {string}  — section title (uppercased in CSS)
- * description  {string}  — optional subtitle line
+ * title        {string}   — section title (uppercased in CSS)
+ * description  {string}   — optional subtitle line
+ * compact      {boolean}  — tighter 30px top/bottom padding (e.g. Products page)
  */
 export default function SectionHeading({
   title,
   description,
+  compact = false,
 }) {
   const headingRef = useRef(null);
   const titleRef = useRef(null);
@@ -59,7 +61,7 @@ export default function SectionHeading({
   }, [title]);
 
   return (
-    <div className="sec-heading" ref={headingRef}>
+    <div className={`sec-heading${compact ? " sec-heading--compact" : ""}`} ref={headingRef}>
       <h2 className="sec-heading__title" ref={titleRef}>
         <span className="sec-reveal__clip">
           <span className="sec-reveal__text">{title}</span>

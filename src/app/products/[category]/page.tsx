@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Header from "../../../components/sections/Header/Header";
+import ProductsPage from "../../../components/sections/Products/ProductsPage";
 import {
   CATEGORIES,
   CATEGORY_SLUGS,
@@ -53,39 +55,10 @@ export default async function ProductCategoryPage({
 
   if (!validSlugs.includes(category)) notFound();
 
-  /**
-   * TODO: Replace this placeholder with the real <ProductsPage> component
-   * once the UI is built.
-   *
-   * The active category slug is passed as a prop so the filter tabs
-   * can highlight the correct button on first render.
-   *
-   * Example (uncomment when ready):
-   *
-   * import ProductsPage from "../../../components/sections/Products/ProductsPage";
-   *
-   * return (
-   *   <>
-   *     <Header />
-   *     <ProductsPage activeCategory={category} categories={CATEGORIES} />
-   *   </>
-   * );
-   */
   return (
-    <main style={{ padding: "2rem", fontFamily: "sans-serif" }}>
-      <p style={{ color: "#888", marginBottom: "0.5rem" }}>
-        HOME / PRODUCTS{category !== "all" ? ` / ${category.toUpperCase().replace(/-/g, " ")}` : ""}
-      </p>
-      <h1 style={{ fontSize: "2rem", marginBottom: "1rem" }}>
-        PRODUCT CATALOGUE
-      </h1>
-      <p style={{ color: "#666", marginBottom: "2rem" }}>
-        Active filter: <strong>{category}</strong>
-      </p>
-      <p style={{ color: "#aaa" }}>
-        ← Replace this placeholder with the{" "}
-        <code>&lt;ProductsPage&gt;</code> component once the UI is built.
-      </p>
-    </main>
+    <>
+      <Header forceSolid disableBottomRightRadius />
+      <ProductsPage activeCategory={category} categories={CATEGORIES} />
+    </>
   );
 }

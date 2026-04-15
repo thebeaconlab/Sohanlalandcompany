@@ -11,6 +11,9 @@ export default function SecondCta({
   onClick,
   isSelected = false,
   type = "button",
+  rightIconSrc,
+  rightIconAlt = "",
+  rightIconClassName = "",
 }) {
   const [isHovered, setIsHovered] = useState(false);
   const [isPressed, setIsPressed] = useState(false);
@@ -51,6 +54,14 @@ export default function SecondCta({
       </AnimatePresence>
 
       <span className="scta__text">{label}</span>
+      {rightIconSrc ? (
+        <img
+          src={rightIconSrc}
+          alt={rightIconAlt}
+          aria-hidden={rightIconAlt ? undefined : "true"}
+          className={`scta__icon ${rightIconClassName}`.trim()}
+        />
+      ) : null}
     </motion.button>
   );
 }
