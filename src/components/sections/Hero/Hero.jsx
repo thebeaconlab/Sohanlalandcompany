@@ -43,7 +43,7 @@ export default function Hero() {
         loop
         muted
         playsInline
-        src="/Clips/SLBULD.mp4"
+        src="/Clips/hero.mp4"
       />
 
       {/* Bottom gradient scrim so text stays readable over any footage */}
@@ -54,7 +54,7 @@ export default function Hero() {
 
           <h1 className="hero-title">
             <span className="hero-reveal-clip">
-              <span className="hero-reveal-inner">Shaping Structure.</span>
+              <span className="hero-reveal-inner">Shaping Structures.</span>
             </span>
             <span className="hero-reveal-clip">
               <span className="hero-reveal-inner">Defining Surfaces.</span>

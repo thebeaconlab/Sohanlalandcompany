@@ -172,6 +172,9 @@
    Mobile category section  (≤ 1024px)
    ───────────────────────────────────────────── */
 @media (max-width: 1024px) {
+  .cat-heading__mobile-hide-break {
+    display: none;
+  }
 
   /*
    * --cat-stable-vh is written once by JS (window.innerHeight at mount)

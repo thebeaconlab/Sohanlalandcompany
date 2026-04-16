@@ -1,5 +1,4 @@
 .sl-footer {
-  background: var(--background);
   padding: 40px 1%;
   display: flex;
   flex-direction: column;
@@ -11,7 +10,7 @@
 
 .sl-footer__panel {
   width: 100%;
-  background: var(--pcs-brown-600);
+  background: var(--pcs-brown-500);
   border-top-left-radius: 42px;
   border-bottom-right-radius: 42px;
   padding: 40px 20px;
@@ -57,7 +56,7 @@
   flex-direction: column;
   align-items: flex-start;
   font-family: var(--font-lora), serif;
-  font-size: clamp(48px, 2.038vw, 56px);
+  font-size: clamp(34px, 1.6vw, 42px);
   font-weight: 600;
   line-height: 120%;
   letter-spacing: -0.03em;
@@ -90,6 +89,7 @@
   letter-spacing: 0.01em;
   text-transform: uppercase;
   color: var(--pcs-brown-10);
+  padding-bottom: 12px;
 }
 
 .sl-footer__items {
@@ -108,7 +108,7 @@
   font-weight: 400;
   line-height: 150%;
   letter-spacing: 0.01em;
-  color: var(--pcs-brown-200);
+  color: var(--pcs-brown-100);
 }
 
 .sl-footer__copyright {

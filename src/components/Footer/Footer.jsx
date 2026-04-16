@@ -11,6 +11,7 @@ const FOOTER_SECTIONS = [
       "Bricks & Blocks",
       "Paving Solutions",
       "Facade & Wall Cladding",
+      "Precast Solutions",
       "Architecture & Landscape",
     ],
   },
@@ -24,7 +25,7 @@ const FOOTER_SECTIONS = [
   },
   {
     heading: "Contact",
-    items: ["+91 60006-73537", "midaskrpandita@gmail.com", "write us"],
+    items: ["+91 99889-00382", "+91 81980-00382", "choudheryinfrabuild@gmail.com"],
   },
 ];
 
@@ -45,7 +46,7 @@ export default function Footer() {
 
         <div className="sl-footer__content">
           <h2 className="sl-footer__title">
-            <span>Shaping Structure.</span>
+            <span>Shaping Structures.</span>
             <span>Defining Surfaces.</span>
           </h2>
 
@@ -67,7 +68,7 @@ export default function Footer() {
       </div>
 
       <p className="sl-footer__copyright">
-        2026 &copy; All Rights Reserved Sohan Lal &amp; Co. &amp; Choudhery Infratech
+        2026 &copy; All Rights Reserved Sohan Lal &amp; Co. &amp; Choudhery Infrabuild
       </p>
     </footer>
   );

@@ -20,13 +20,14 @@ const jsonLd = {
     {
       "@type": "Organization",
       "@id": `${SITE_URL}/#organization`,
-      name: "SL Build Tech",
+      name: "Sohan Lal & Co.",
       alternateName: "Sohan Lal and Company",
       url: SITE_URL,
       logo: `${SITE_URL}/og-image.png`,
       description:
         "A trusted construction company with a legacy spanning over 50 years, " +
-        "delivering premium building materials and innovative construction solutions.",
+        "delivering premium building materials and innovative construction solutions " +
+        "from Punjab, India.",
       foundingDate: "1975",
       numberOfEmployees: { "@type": "QuantitativeValue", minValue: 50 },
       knowsAbout: [
@@ -36,32 +37,38 @@ const jsonLd = {
         "Precast Solutions",
         "Architectural & Landscape Products",
       ],
-      /* TODO: Add when ready
       address: {
         "@type": "PostalAddress",
-        streetAddress: "...",
-        addressLocality: "...",
-        addressRegion: "...",
-        postalCode: "...",
+        streetAddress: "Village Biromajri",
+        addressLocality: "Near Manakpur",
+        addressRegion: "Punjab",
+        postalCode: "140602",
         addressCountry: "IN",
       },
-      contactPoint: {
-        "@type": "ContactPoint",
-        telephone: "+91-...",
-        contactType: "sales",
-        availableLanguage: ["English", "Hindi"],
-      },
-      sameAs: [
-        "https://www.instagram.com/...",
-        "https://www.linkedin.com/company/...",
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          telephone: "+91-99889-00382",
+          contactType: "sales",
+          availableLanguage: ["English", "Hindi", "Punjabi"],
+        },
+        {
+          "@type": "ContactPoint",
+          telephone: "+91-81980-00382",
+          contactType: "customer service",
+          availableLanguage: ["English", "Hindi", "Punjabi"],
+        },
       ],
-      */
+      areaServed: {
+        "@type": "Country",
+        name: "India",
+      },
     },
     {
       "@type": "WebSite",
       "@id": `${SITE_URL}/#website`,
       url: SITE_URL,
-      name: "SL Build Tech",
+      name: "Sohan Lal & Co.",
       publisher: { "@id": `${SITE_URL}/#organization` },
       inLanguage: "en-IN",
     },
@@ -69,9 +76,9 @@ const jsonLd = {
       "@type": "WebPage",
       "@id": `${SITE_URL}/#homepage`,
       url: SITE_URL,
-      name: "SL Build Tech | Premium Construction & Building Solutions",
+      name: "Sohan Lal & Co. | Premium Construction & Building Materials",
       description:
-        "Explore SL Build Tech's premium range of bricks, paving solutions, " +
+        "Explore Sohan Lal & Co.'s premium range of bricks, paving solutions, " +
         "facade cladding, precast products, and architectural designs — " +
         "backed by 50+ years of trusted craftsmanship.",
       isPartOf: { "@id": `${SITE_URL}/#website` },
@@ -88,7 +95,7 @@ const jsonLd = {
           "@type": "ListItem",
           position: 1,
           name: "Bricks & Blocks",
-          url: `${SITE_URL}/products/bricks-and-blocks`,
+          url: `${SITE_URL}/products/bricks-blocks`,
         },
         {
           "@type": "ListItem",
@@ -100,7 +107,7 @@ const jsonLd = {
           "@type": "ListItem",
           position: 3,
           name: "Facade & Wall Cladding",
-          url: `${SITE_URL}/products/facade-and-wall-cladding`,
+          url: `${SITE_URL}/products/wall-cladding`,
         },
         {
           "@type": "ListItem",
@@ -112,9 +119,39 @@ const jsonLd = {
           "@type": "ListItem",
           position: 5,
           name: "Architectural & Landscape",
-          url: `${SITE_URL}/products/architectural-and-landscape`,
+          url: `${SITE_URL}/products/architecture-landscape`,
         },
       ],
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": `${SITE_URL}/#localbusiness`,
+      name: "Sohan Lal & Co.",
+      image: `${SITE_URL}/og-image.png`,
+      url: SITE_URL,
+      telephone: "+91-99889-00382",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Village Biromajri",
+        addressLocality: "Near Manakpur",
+        addressRegion: "Punjab",
+        postalCode: "140602",
+        addressCountry: "IN",
+      },
+      priceRange: "$$",
+      openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ],
+        opens: "09:00",
+        closes: "18:00",
+      },
     },
   ],
 };

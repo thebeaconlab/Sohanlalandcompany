@@ -24,7 +24,7 @@ function splitWords(text) {
 }
 
 const PARA =
-  "SL Build Tech is a trusted construction company with a legacy spanning over 50 years. Founded with a vision to deliver quality and reliability, the company has grown into a leader in innovative building solutions.";
+  "Sohan Lal & Co. is a trusted construction company with a legacy spanning over 50 years. Founded with a vision to deliver quality and reliability, the company has grown into a leader in innovative building solutions.";
 
 export default function Legacy() {
   const leftRef  = useRef(null);
@@ -127,7 +127,7 @@ export default function Legacy() {
     <>
       <SectionHeading
         title="Our Legacy"
-        description="How we evolved over the years"
+        description="How we have evolved over the years"
       />
 
       <section className="leg-section">

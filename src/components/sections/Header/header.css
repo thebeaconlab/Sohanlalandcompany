@@ -103,7 +103,7 @@
 }
 
 .sl-header__link:hover {
-  background: var(--pcs-brown-400);
+  background: var(--pcs-brown-300);
   border-top-left-radius: 12px;
   border-bottom-right-radius: 12px;
   border-bottom: 0.8px solid var(--pcs-brown-100);

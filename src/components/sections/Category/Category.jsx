@@ -193,7 +193,11 @@ export default function Category() {
         title="Categories"
         description={
           <>
-          <span>A complete range of building materials, designed for <br/>modern construction.</span>
+          <span>
+            A complete range of building materials, designed for{" "}
+            <br className="cat-heading__mobile-hide-break" />
+            modern construction.
+          </span>
           </>
         }
       />

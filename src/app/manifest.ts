@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "SL Build Tech — Premium Construction & Building Solutions",
-    short_name: "SL Build Tech",
+    name: "Sohan Lal & Co. — Premium Construction & Building Materials",
+    short_name: "Sohan Lal & Co.",
     description:
       "A trusted construction company with 50+ years of legacy. " +
       "Premium bricks, paving, facade, precast & architectural products.",

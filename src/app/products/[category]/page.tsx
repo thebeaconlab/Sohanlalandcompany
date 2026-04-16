@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Header from "../../../components/sections/Header/Header";
 import ProductsPage from "../../../components/sections/Products/ProductsPage";
+import Footer from "../../../components/Footer/Footer";
 import {
   CATEGORIES,
   CATEGORY_SLUGS,
   getCategoryBySlug,
 } from "../../../components/sections/Products/data/index";
 
-// ─── Static params (pre-render every category route at build time) ──────────
 export function generateStaticParams() {
   return [
     { category: "all" },
@@ -16,7 +16,6 @@ export function generateStaticParams() {
   ];
 }
 
-// ─── Per-page metadata ───────────────────────────────────────────────────────
 export async function generateMetadata({
   params,
 }: {
@@ -26,10 +25,11 @@ export async function generateMetadata({
 
   if (category === "all") {
     return {
-      title: "Product Catalogue",
+      title: "Product Catalogue — All Construction Materials",
       description:
-        "Browse SL Build Tech's complete range of premium construction products — " +
-        "bricks, paving, facade cladding, precast & architectural solutions.",
+        "Browse Sohan Lal & Co.'s complete range of premium construction products — " +
+        "bricks, blocks, paving solutions, facade & wall cladding, precast & architectural solutions. " +
+        "50+ years of trusted quality from Punjab, India.",
       alternates: { canonical: "/products/all" },
     };
   }
@@ -38,13 +38,14 @@ export async function generateMetadata({
   if (!cat) return { title: "Products" };
 
   return {
-    title: cat.label,
-    description: `Explore SL Build Tech's ${cat.label} — premium quality, engineered for lasting performance.`,
+    title: `${cat.label} — Premium Construction Materials`,
+    description:
+      `Explore Sohan Lal & Co.'s ${cat.label} — premium quality construction materials ` +
+      `engineered for lasting performance. Trusted by builders across India for 50+ years.`,
     alternates: { canonical: `/products/${cat.slug}` },
   };
 }
 
-// ─── Page component ──────────────────────────────────────────────────────────
 export default async function ProductCategoryPage({
   params,
 }: {
@@ -59,6 +60,7 @@ export default async function ProductCategoryPage({
     <>
       <Header forceSolid disableBottomRightRadius />
       <ProductsPage activeCategory={category} categories={CATEGORIES} />
+      <Footer />
     </>
   );
 }

@@ -15,7 +15,7 @@ const TESTIMONIALS = [
   {
     stars: 5,
     review:
-      "Excellent experience with SL Build Tech. The bricks were uniform, strong, and high quality, while the concrete delivered outstanding durability. Timely delivery and professional service made the entire construction process smooth and reliable. Highly recommended for premium building materials.",
+      "Excellent experience with Sohan Lal & Co. The bricks were uniform, strong, and high quality, while the concrete delivered outstanding durability. Timely delivery and professional service made the entire construction process smooth and reliable. Highly recommended for premium building materials.",
     author: "HILTON GUPTA MD@APOLLO",
   },
   {
@@ -33,7 +33,7 @@ const TESTIMONIALS = [
   {
     stars: 4,
     review:
-      "SL Build Tech has been reliable for premium projects where quality and timelines both matter. Their support team is responsive and service quality remains strong.",
+      "Sohan Lal & Co. has been reliable for premium projects where quality and timelines both matter. Their support team is responsive and service quality remains strong.",
     author: "NAVEEN KUMAR, BUILDER",
   },
 ];
